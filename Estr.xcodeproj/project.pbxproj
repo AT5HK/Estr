@@ -14,6 +14,10 @@
 		12BB7FB21BEE9FBE00674C5B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12BB7FB01BEE9FBE00674C5B /* LaunchScreen.storyboard */; };
 		12BB7FBD1BEE9FBF00674C5B /* EstrTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BB7FBC1BEE9FBF00674C5B /* EstrTests.swift */; };
 		12BB7FC81BEE9FBF00674C5B /* EstrUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BB7FC71BEE9FBF00674C5B /* EstrUITests.swift */; };
+		12BB7FD61BEECC9C00674C5B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BB7FD51BEECC9C00674C5B /* MapViewController.swift */; };
+		12BB7FD81BEED03800674C5B /* BusinessDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BB7FD71BEED03800674C5B /* BusinessDetailViewController.swift */; };
+		12BB7FDA1BEED78C00674C5B /* BusinessDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BB7FD91BEED78C00674C5B /* BusinessDetailCell.swift */; };
+		12BB7FDC1BEF006A00674C5B /* QueueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BB7FDB1BEF006A00674C5B /* QueueViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +51,10 @@
 		12BB7FC31BEE9FBF00674C5B /* EstrUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EstrUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		12BB7FC71BEE9FBF00674C5B /* EstrUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstrUITests.swift; sourceTree = "<group>"; };
 		12BB7FC91BEE9FBF00674C5B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		12BB7FD51BEECC9C00674C5B /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		12BB7FD71BEED03800674C5B /* BusinessDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessDetailViewController.swift; sourceTree = "<group>"; };
+		12BB7FD91BEED78C00674C5B /* BusinessDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessDetailCell.swift; sourceTree = "<group>"; };
+		12BB7FDB1BEF006A00674C5B /* QueueViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueueViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,10 +107,14 @@
 			children = (
 				12BB7FA71BEE9FBE00674C5B /* AppDelegate.swift */,
 				12BB7FA91BEE9FBE00674C5B /* ViewController.swift */,
+				12BB7FD51BEECC9C00674C5B /* MapViewController.swift */,
+				12BB7FD71BEED03800674C5B /* BusinessDetailViewController.swift */,
 				12BB7FAB1BEE9FBE00674C5B /* Main.storyboard */,
 				12BB7FAE1BEE9FBE00674C5B /* Assets.xcassets */,
 				12BB7FB01BEE9FBE00674C5B /* LaunchScreen.storyboard */,
 				12BB7FB31BEE9FBE00674C5B /* Info.plist */,
+				12BB7FD91BEED78C00674C5B /* BusinessDetailCell.swift */,
+				12BB7FDB1BEF006A00674C5B /* QueueViewController.swift */,
 			);
 			path = Estr;
 			sourceTree = "<group>";
@@ -257,7 +269,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				12BB7FAA1BEE9FBE00674C5B /* ViewController.swift in Sources */,
+				12BB7FD61BEECC9C00674C5B /* MapViewController.swift in Sources */,
+				12BB7FDC1BEF006A00674C5B /* QueueViewController.swift in Sources */,
 				12BB7FA81BEE9FBE00674C5B /* AppDelegate.swift in Sources */,
+				12BB7FD81BEED03800674C5B /* BusinessDetailViewController.swift in Sources */,
+				12BB7FDA1BEED78C00674C5B /* BusinessDetailCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -398,6 +414,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Estr/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ARJHack.Estr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -409,6 +426,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Estr/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ARJHack.Estr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -482,6 +500,7 @@
 				12BB7FCE1BEE9FBF00674C5B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		12BB7FCF1BEE9FBF00674C5B /* Build configuration list for PBXNativeTarget "EstrTests" */ = {
 			isa = XCConfigurationList;
@@ -490,6 +509,7 @@
 				12BB7FD11BEE9FBF00674C5B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		12BB7FD21BEE9FBF00674C5B /* Build configuration list for PBXNativeTarget "EstrUITests" */ = {
 			isa = XCConfigurationList;
@@ -498,6 +518,7 @@
 				12BB7FD41BEE9FBF00674C5B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

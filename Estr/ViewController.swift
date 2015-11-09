@@ -10,16 +10,28 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var usernameField: UITextField!
+    @IBOutlet weak var passwordField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        underlineTextField(usernameField)
+        underlineTextField(passwordField)
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    //MARK: Helper functions 
+    
+    func underlineTextField(textField:UITextField) {
+        let border = CALayer()
+        let width = CGFloat(0.5)
+        border.borderColor = UIColor(white: 1.0, alpha: 0.7).CGColor
+        border.frame = CGRect(x: 0, y: textField.frame.size.height - width, width:  textField.frame.size.width, height: textField.frame.size.height)
+        
+        border.borderWidth = width
+        textField.layer.addSublayer(border)
+        textField.layer.masksToBounds = true
     }
-
 
 }
 
