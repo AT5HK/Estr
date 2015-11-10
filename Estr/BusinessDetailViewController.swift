@@ -13,6 +13,7 @@ class BusinessDetailViewController: UITableViewController {
     var masterArray = []
     var kTableHeaderHeight: CGFloat = 0.0
     
+    @IBOutlet weak var goToQueue: UIButton!
     @IBOutlet weak var headerBackground: UIView!
     
     override func viewDidLoad() {
@@ -37,6 +38,7 @@ class BusinessDetailViewController: UITableViewController {
         
         masterArray = [firstSectionArray, secondSectionArray]
         parallaxViewSetup()
+        setup()
 
     }
 
@@ -46,6 +48,11 @@ class BusinessDetailViewController: UITableViewController {
     }
     
     //MARK: Helper methods 
+    
+    func setup() {
+        goToQueue.layer.borderWidth = 1
+        goToQueue.layer.borderColor = UIColor(red: 0.357, green: 0.780, blue: 0.925, alpha: 1.00).CGColor
+    }
     
     func parallaxViewSetup() {
         tableView.rowHeight = UITableViewAutomaticDimension

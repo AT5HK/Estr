@@ -18,6 +18,7 @@ class ViewController: UIViewController {
         
         underlineTextField(usernameField)
         underlineTextField(passwordField)
+//        self.view = UIImageView(image: UIImage(named: "splash"))
     }
     
     //MARK: Helper functions 

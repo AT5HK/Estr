@@ -13,11 +13,13 @@ class QueueViewController: UIViewController {
     @IBOutlet weak var queueLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationController?.navigationBarHidden = false
 
         // Do any additional setup after loading the view.
 
         let session = NSURLSession.sharedSession()
-        let urlString = "http://192.75.243.32:3000/fish"
+        let urlString = "https://estr-3.herokuapp.com/api/v1/users/1"
         let url = NSURL(string: urlString)
         
         let dataTask = session.dataTaskWithURL(url!, completionHandler: { (data, response, error) -> Void in
