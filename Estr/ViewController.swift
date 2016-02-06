@@ -7,32 +7,52 @@
 //
 
 import UIKit
+import Alamofire
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var usernameField: UITextField!
+    @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        underlineTextField(usernameField)
-        underlineTextField(passwordField)
-//        self.view = UIImageView(image: UIImage(named: "splash"))
+        setupView()
     }
     
     //MARK: Helper functions 
     
-    func underlineTextField(textField:UITextField) {
-        let border = CALayer()
-        let width = CGFloat(0.5)
-        border.borderColor = UIColor(white: 1.0, alpha: 0.7).CGColor
-        border.frame = CGRect(x: 0, y: textField.frame.size.height - width, width:  textField.frame.size.width, height: textField.frame.size.height)
+    func setupView() {
         
-        border.borderWidth = width
-        textField.layer.addSublayer(border)
-        textField.layer.masksToBounds = true
+        underlineTextField(emailField)
+        underlineTextField(passwordField)
     }
-
+    
+    func loginUser(email:String, password:String) {
+        
+        let URL = "http://engageapp.herokuapp.com/auth/local"
+        let json: [String: AnyObject] =
+        [
+            "email":email,
+            "password":password
+        ]
+        
+        Alamofire.request(.POST, URL, parameters: json, encoding: .JSON)
+            .responseJSON {
+                response in
+                print("the status code \(response.response?.statusCode)")
+                print("the login repsone: \(response)")
+        }
+    }
+    
+    //MARK:IBActions
+    
+    @IBAction func login(sender: AnyObject) {
+        
+        let email = emailField.text!
+        let password = passwordField.text!
+        
+        loginUser(email, password: password)
+    }
 }
 
