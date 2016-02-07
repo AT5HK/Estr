@@ -28,7 +28,20 @@ class ViewController: UIViewController {
         underlineTextField(passwordField)
     }
     
-    func loginUser(email:String, password:String) {
+    func getUsersName(userToken:String) {
+        
+        let URL = "http://engageapp.herokuapp.com/api/users/me"
+        let headers = [
+            "Authorization": "Bearer \(userToken)"
+        ]
+        
+        Alamofire.request(.GET, URL, headers: headers)
+            .responseJSON { response in
+                print("the resposne from getName: \(response)")
+        }
+    }
+    
+    func loginUser(email:String, password:String, completionHandler: ((token:String) -> Void)) {
         
         let URL = "http://engageapp.herokuapp.com/auth/local"
         let json: [String: AnyObject] =
@@ -40,8 +53,13 @@ class ViewController: UIViewController {
         Alamofire.request(.POST, URL, parameters: json, encoding: .JSON)
             .responseJSON {
                 response in
-                print("the status code \(response.response?.statusCode)")
-                print("the login repsone: \(response)")
+                response
+                
+                let json = response.result.value as! NSDictionary
+                let token = json["token"] as? String
+                print("the token: \(token!)")
+                completionHandler(token: token!)
+                print("the status code \(response.response!.statusCode)")
         }
     }
     
@@ -52,7 +70,10 @@ class ViewController: UIViewController {
         let email = emailField.text!
         let password = passwordField.text!
         
-        loginUser(email, password: password)
+        loginUser(email, password: password) { (token) -> Void in
+            self.getUsersName(token)
+        }
     }
+    
 }
 
